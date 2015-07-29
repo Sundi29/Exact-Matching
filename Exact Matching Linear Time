@@ -1,0 +1,67 @@
+T = raw_input("\nEnter the Text String: ")
+P = raw_input("\nEnter the Pattern: ")
+Z = []
+TS = P + "$" + T
+k = 1
+r = 0
+flag = 0 
+l = 0
+i = 0
+q = 0
+while(i<len(TS)):
+        Z.insert(i, 0)
+        i = i + 1
+while(k<=(len(TS)-len(P))):
+        flag = 0
+        if(k>r):   
+                j = 0
+                s = 0
+                i = k
+                while(j<len(P) and i<len(TS) and flag == 0):
+                        q = q + 1
+                        if(TS[i] == P[j]):
+                                i = i + 1
+                                j = j + 1
+                                s = s + 1
+                        else:
+                               flag = 1
+                if(s>0):
+                        l = k
+                        r = k + j - 1
+                       Z[k] = r-l+1               
+        else:
+                if(l>=1):
+                        n = k-l
+                        m = k + Z[n] -1
+                        if(m<r):
+                                Z.insert(k, Z[n])
+                        elif(m>=r):
+                                j = r-k
+                                s = 0
+                                i = r
+                                while(j<len(P) and i<len(TS) and flag == 0):
+                                        q = q + 1
+                                        if(TS[i] == P[j]):
+                                                i = i + 1
+                                                j = j + 1
+                                                s = s + 1
+                                        else:
+                                                flag = 1
+                                if(s>0):
+                                        l = k
+                                        r = k + j - 1
+                                        Z[k] = r-l+1
+                                else:
+                                        Z[k] = r-k+1
+        k = k + 1
+i = 0
+s = 0
+while(i<len(Z)):
+        if(Z[i] == len(P)):
+                s = s + 1
+        i = i + 1
+print "Total Number of Matches of pattern ", P, "in string ", T, "is ", s
+print "Total Number of comparisons made is", q
+                    
+ 
+ 
