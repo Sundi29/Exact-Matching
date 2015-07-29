@@ -1,0 +1,26 @@
+T = raw_input("\nEnter the Text String: ")
+P = raw_input("\nEnter the Pattern: ")
+i = 0
+s1 = 0
+q = 0
+while(i<=(len(T)-len(P))):
+    s2 = 0
+    j = 0
+    k = i
+    while(j<len(P)):
+        q = q + 1
+        #print T[k], P[j]
+        if(T[k] == P[j]):
+            #print "match!"
+            k = k + 1
+            j = j + 1
+            s2 = s2 + 1
+        else:
+            j = len(P)
+    if(s2 == len(P)):
+        s1 = s1 + 1
+    i = i + 1
+#print len(T)
+#print len(P)
+print "Total Number of Matches of pattern ", P, "in string ", T, "is ", s1
+print "Total Number of comparisons made is", q
