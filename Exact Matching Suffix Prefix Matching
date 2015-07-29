@@ -1,0 +1,39 @@
+alpha = raw_input("Enter alpha string: ")
+beta=  raw_input("Enter beta sring: ")
+n = len(alpha)
+m = len(beta)
+if(n>m):
+    fa = n - m +1
+    fb = 0
+    i = n - 1
+    j = m-2
+else:
+    fa = 1
+    fb = 0
+    i = n - 1
+    j = m - n + 1
+flag = -1
+p = i
+q = j
+print i, j
+print n, m
+while(i>=fa and j>=fb and flag !=1):
+    s = 0
+    check = 0
+    print p, q, fa, j
+    print alpha[p], beta[q] 
+    if(alpha[p] == beta[q]):
+        s = s +1
+        p = p -1
+        q = q - 1
+    else:
+        check = 1
+    if(s == ((i-fa)+1)):
+        flag == 1
+    elif(check == 1):
+        fa = fa + 1
+        j = j - 1
+        p = i
+        q = j
+print "in alpha ", alpha, "the string starts at index ", fa
+print "in beta ", beta, "the string ends at index ", j+1
